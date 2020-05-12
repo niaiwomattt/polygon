@@ -11,5 +11,7 @@
 listener->handler->storer->driver
 
 每层只依赖下一层，所有层中的配置，通过注册制，注册到 config 层中，只有存在当前层时，才有此配置，否则不存在配置。
+
 每层只对上一层的接口负责，返回接口类型数据和对象，不对具体对象做依赖。
-实际中，listener 和 storer 都会对 driver 层产生依赖，这俩层的驱动，都要在 driver 中。
+
+实际中，listener 和 driver 可能使用同一个包的俩种方式，比如 nats 的 订阅 和发布，这样的时候，listener 中包含自身的订阅器，不要和 driver 产生依赖，否则会造成循环依赖问题。
