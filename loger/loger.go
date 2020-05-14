@@ -11,52 +11,29 @@ type Loger interface {
 	Debug(interface{}) // 调试，比info 多更多相关信息，比如，模块，行，等等
 }
 
-type Log struct {
+var drive Loger
 
+// 注册日志驱动
+func RegistDrive(l Loger)  {
+	drive = l
 }
 
-// 接口和实现分开，但是又要符合这个消息结构
-// 另外这个字段定义只是简单放置
-type Fatal struct {
-	Msg string
+func Fatal(f interface{})  {
+	drive.Fatal(f)
 }
 
-type Error struct {
-	Fatal
-	More string
+func Error(e interface{})  {
+	drive.Error(e)
 }
 
-type Warn struct {
-	Error
-	Data interface{}
+func Warn(w interface{})  {
+	drive.Warn(w)
 }
 
-type Info struct {
-	Warn
-	Info string
+func Info(i interface{})  {
+	drive.Info(i)
 }
 
-type Debug struct {
-	Info
-	Line string
-}
-
-func (l *Log)Fatal(f Fatal)  {
-
-}
-
-func (l *Log)Error(e Error)  {
-
-}
-
-func (l *Log)Warn(e Error)  {
-
-}
-
-func (l *Log)Info(e Error)  {
-
-}
-
-func (l *Log)Debug(e Error)  {
-
+func Debug(d interface{})  {
+	drive.Debug(d)
 }
