@@ -1,8 +1,8 @@
 package main
 
 import (
-	"pay_polygon/configer"
-	_ "pay_polygon/driver/es"
+	"polygon/configer"
+	_ "polygon/driver/es"
 )
 
 func main() {

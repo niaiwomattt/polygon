@@ -2,7 +2,7 @@ package configer
 
 import (
 	"github.com/BurntSushi/toml"
-	"log"
+	"polygon/loger"
 )
 
 // 配置接口
@@ -38,7 +38,7 @@ func Get(name string) Configer {
 func InitConfig() {
 	_, err := toml.DecodeFile("config.toml", &fileList)
 	if err != nil {
-		log.Printf("err: %v\n",err)
+		loger.Fatal(err)
 	}
 
 	for k, _ := range cfgVal {

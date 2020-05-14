@@ -1,4 +1,4 @@
-module pay_polygon
+module polygon
 
 go 1.14
 

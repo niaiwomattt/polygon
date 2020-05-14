@@ -1,6 +1,6 @@
 package es
 
-import "pay_polygon/configer"
+import "polygon/configer"
 
 type EsCfg struct {
 	Addr string
