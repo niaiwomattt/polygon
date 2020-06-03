@@ -2,7 +2,7 @@ package configer
 
 import (
 	"github.com/BurntSushi/toml"
-	"polygon/loger"
+	"polygon/logger"
 )
 
 // 配置接口
